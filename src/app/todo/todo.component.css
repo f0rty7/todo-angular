@@ -1,0 +1,18 @@
+h1{
+  margin-top: 10px;
+  display:flex;
+  justify-content: center;
+}
+
+.container{
+  margin-top: 15px;
+}
+
+.list-todo{
+  margin-left: 10px;
+}
+
+.removetodo{
+  margin-top: 15px;
+}
+

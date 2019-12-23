@@ -1,0 +1,43 @@
+<h1>Todo Angular App</h1>
+<div class="container">
+    <form (submit)="addTodo($event)">
+        <div class="input-group mb-3">
+          <input
+            [(ngModel)]="newTodo"
+            (keyup.enter)="newTodo=''"
+            class="form-control"
+            name="newTodo"
+            placeholder="Add a Todo">
+            <div class="input-group-append">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="newTodo===''">
+                Add Todo
+              </button>
+              </div>
+          </div>
+    </form>
+
+  <div [hidden]="newTodo">
+    Type in a new todo...
+  </div>
+
+  <div [hidden]="!newTodo">
+    Typing: {{ newTodo }}
+  </div>
+
+  <div>
+      <ul class="list-group">
+          <li class="list-group-item" *ngFor="let todo of todoList; let i=index">
+            <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
+            <span [ngClass]="{'checked': todo.completed}" class="list-todo">{{ todo.newTodo }}</span>
+            <button (click)="removeTodo(i)" class="btn btn-danger float-right">Delete</button>
+          </li>
+      </ul>
+  </div>
+
+  <div class="removetodo">
+    <button class="btn btn-outline-danger" type="button" (click)="removeSeletedTodo()">Delete Selected</button>
+  </div>
+</div>
